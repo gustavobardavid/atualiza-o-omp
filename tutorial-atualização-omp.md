@@ -1,29 +1,28 @@
 # Como atualizar
 
 ## Preparação 
-### Instalar PHP na versão 7.0 ou >;
 
-### Instalar MySql na versão 4.1 ou >;
+## Instalar PHP na versão 7.0 ou >;
+
+## Instalar MySql na versão 4.1 ou >;
 
 ### Clonar o repositorio pra sua máquina: 
 #### via HTTPS: https://gitlab.ifpb.edu.br/celulas-cooperacao/editora-v3.git
 
 #### via SSH: git@gitlab.ifpb.edu.br:celulas-cooperacao/editora-v3.git
 
-#### Configurar o ambiente:
+#### Configurar o ambiente e executar versão desatualizada:
 - Faça uma cópia do config.TEMPLATE.inc.php e apague o .TEMPLATE do nome do arquivo
-
-- Alterar "files_dir" para o caminho da pasta files
 
 - Acessar o arquivo config.inc.php
 
-- Alterar General Settings de installed = On para installed = Off
+- Alterar "files_dir" para o caminho da pasta files
 
 - Na pasta cache, criar as seguintes subpastas: t_cache, t_compile_, t_config, _db.
 
-- Abrir o arquivo php.ini, na pasta de instalação do php, e ativar as seguintes extesions: extension=php_mbstring.dll e extension=php_mysqli.dll
+- Alterar General Settings de installed = On para installed = Off
 
-- Acessar a pasta tools e executar o seguinte comando para atualizar as tabelas do banco  de dados com a atualização do OMP PKP: php upgrade.php upgrade
+- Abrir o arquivo php.ini, na pasta de instalação do php, e ativar as seguintes extesions: extension=php_mbstring.dll e extension=php_mysqli.dll
 
 - Execute o comando: php -S localhost:8000
 

@@ -1,0 +1,39 @@
+version: '3.3'
+services:
+    app:
+        container_name: editorav3
+        image: editora:v3
+        restart: unless-stopped
+        ports:
+            - 8000:8000
+        depends_on:
+            - db
+        build: .
+        volumes:
+            - ../editora-ifpb:/var/www/html/editora-ifpb
+            - ../presses:/var/www/files/presses
+        networks:
+            - editorav3-network
+    db:
+        image: mysql:5.7.29
+        container_name: editora-mysql
+        restart: unless-stopped
+        volumes:
+            - ../data/mysql:/var/lib/mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=${MYSQL_PASSWORD}
+        networks:
+            - editorav3-network
+    phpmyadmin:
+        image: phpmyadmin
+        restart: always
+        ports:
+            - 8080:80
+        environment:
+            - PMA_ARBITRARY=1
+            - UPLOAD_LIMIT=15G
+        networks:
+            - editorav3-network
+networks:
+    editorav3-network:
+          driver: bridge

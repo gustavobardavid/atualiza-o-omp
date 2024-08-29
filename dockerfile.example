@@ -1,0 +1,19 @@
+FROM ubuntu:20.04
+
+RUN apt-get update -y
+RUN apt-get install -y software-properties-common
+RUN add-apt-repository ppa:ondrej/php -y
+RUN apt-get update -y
+RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata
+RUN apt-get install php7.0 -y
+
+RUN apt-get install -y php7.0-cli php7.0-common php7.0-gd php7.0-json php7.0-mbstring php7.0-mcrypt php7.0-mysql php7.0-opcache php7.0-readline php7.0-tidy php7.0-xsl php7.0-xml
+
+WORKDIR /var/www/html/editora-ifpb
+
+COPY . /var/www/html/editora-ifpb
+
+RUN php7.0 -v
+
+#ENTRYPOINT php7.0 -S 0.0.0.0:8000
+CMD ["php7.0", "-S", "0.0.0.0:8000"]

@@ -12,6 +12,11 @@
 #### via SSH: git@gitlab.ifpb.edu.br:celulas-cooperacao/editora-v3.git
 
 #### Configurar o ambiente e executar versão desatualizada:
+
+- Arquivos docker-compose e dockerfile atualizados estão aqui no repositório
+
+- Executar o docker-compose up -d na raiz do projeto.
+
 - Faça uma cópia do config.TEMPLATE.inc.php e apague o .TEMPLATE do nome do arquivo
 
 - Acessar o arquivo config.inc.php
@@ -22,7 +27,8 @@
 
 - Alterar General Settings de installed = On para installed = Off
 
-- Abrir o arquivo php.ini, na pasta de instalação do php, e ativar as seguintes extesions: extension=php_mbstring.dll e extension=php_mysqli.dll
+- No terminal acessar a pasta tools e executar o seguinte comando para atualizar as tabelas do banco  de dados com a atualização do OMP PKP:
+php upgrade.php upgrade
 
 - Execute o comando: php -S localhost:8000
 
